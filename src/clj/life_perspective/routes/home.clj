@@ -13,10 +13,14 @@
 (defn about-page [request]
   (layout/render request "about.html"))
 
+(defn life-page [request]
+  (layout/render request "life.html"))
+
 (defn home-routes []
   [ "" 
    {:middleware [middleware/wrap-csrf
                  middleware/wrap-formats]}
    ["/" {:get home-page}]
+   ["/life" {:get life-page}]
    ["/about" {:get about-page}]])
 
